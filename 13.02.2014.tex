@@ -1,0 +1,126 @@
+%раптово малюнок
+%повтикати всюду вектори та форматувати
+Основні теми курсу:\marginpar{\framebox{13.02.2014}}
+\begin{itemize}
+\item Теорія потреб;
+\item Теорія фірми; 
+\item Теорія ринкових структур;
+\item Макроекономічні системи;
+\item Макроекономічна система Кейнса;
+\end{itemize}
+\section{Введення у математичні методи економічного аналізу}
+\subsection{Додадньовизначенні матриці}
+Розкладемо деяку функцію $f(x)$ в ряд Тейлора:
+\begin{equation}
+f(x+h) = f(x)+hf'(x)+h^2f''(x)
+\end{equation}
+Якщо $x$ точка мінімуму, то $f(x+h)-f(x)=h^2f''(x)>0$\\
+$x\in\mR^n,f:\mR^n\to\mR^n$\\
+$\vf\cb{\vx+\vh} = \vf\cb{\vx}+\nabla^Tf \cdot h + \vht \cdot A \cdot h$\\
+Якщо $x$ точка мінімуму, то $f(x+h)-f(x) = h^T \cdot A \cdot h > 0$
+\subsubsection{Властивості доданьовизначенної матриці}
+\begin{teor}
+Для доданьовизначенної матриці A виконується:\\
+$e_i^t A e_i = a_ii$
+\end{teor}
+\begin{teor}
+Для усіх $\la_i$, які є власними числами додатньовизначенної матриці A виконується: $\la_i>0$.
+\end{teor}
+\begin{proof}
+$Ax=\la x$ \\
+$x^T A x = \la x^T x$ \\
+$\la = \cfrac{x^T A x}{x^T x} > 0$
+\end{proof}
+\subsubsection{Задача цариці Додони}
+%ще один малюнок
+Постановка задачі: Є одна шкура вівці. Порізавши її на довгу нитку, потрібно обвести максимальну по площі ділянку біля моря.
+\begin{eqnarray}
+\max xy\\
+2\cdot x+ y  = a
+\end{eqnarray}
+Розв’яжемо цю задачу за допомогою фуункції Лагранджа: $L=x\cdot y +\la\cb{a-2x-y}$\\
+Після диференціювання отримали систему:
+\begin{equation}
+\system{
+\dd Lx = y - 2\la = 0\\
+\dd Ly = x - \la = 0
+}
+\end{equation}
+Отримали з неї: \\
+\begin{equation}
+\system{
+y=2\la \\
+x=\la
+}
+\end{equation}
+Розв’яжемо отримане рівняння $2\la+2\la=4$.\\
+Отримали:$\la = \cfrac a4 \Rightarrow y=\cfrac a2,x=\cfrac a4$
+\subsubsection{Матрична арифметика}
+$x\in\mR^n: C_{m\times p} = A_{m\times n} \cdot L_{n\times p}$\\
+$(\vxt,vx)_{1\times1},(\vx,\vxt)_{n\times n}$\\
+$xA$ %перекреслити
+$Ax$ \\
+$\phi_1(x)=C^\mathrm{T}x = C_1x_1+\ldots + C_nx_n$\\
+$\dd{\phi_1}{x} = C$\\
+$\phi_2  = \vxt A \vx = \cb{\vx,A\vx} = \tr \cb{\vx\vxt A}$\\
+$\dd{\phi_2}x = 2A\vx$\\
+$\dd{\phi(A)}{A} = \dd{\phi}{\aij}$\\
+Зробити дома: $\dd{\det A}{A}=?$\\
+\subsubsection{Ортогональні матриці}
+Матриця $A$ називається ортогональною, якщо $AA^\mathrm{T} = I$\\
+Розглянемо деякі вектори $\vy=A\vx$. При яких матрицях $A$ співпадають $||\vx|| = ||\vy||$?\\
+$||\vy||^2 = \vyt \vy = \vxt A^\mathrm{T} A \vx = \vxt \vx$\\
+Якщо $A$ ортогональна, то $A^{-1} = A^\mathrm{T}$\\
+$\det\cb{A}=\pm 1$\\
+$|\la(A)|=1$\\
+$C=A\cdot B$ - добуток ортогональний також ортогональна.\\
+$C^\mathrm{T} \cdot C = B^\mathrm{T} \cdot A^\mathrm{T} \cdot A \cdot B = B^\mathrm{T} \cdot B = I$\\
+\begin{exs}[матриця Якобі]
+$A=\begin{matrix}
+\cos \phi & -\sin\phi \\
+\sin\phi & \cos\phi
+\end{matrix}$\\
+$\det A = 1$ \\
+Характеристичне рівняння: $\la^2 - 2\cos\phi \la +1$\\
+$\la_\pm = \cos\phi \pm \sqrt{\cos^2\phi - 1} = -\cos\phi \pm i\sin\phi$
+\end{exs}
+\subsubsection{Власні числа}
+Знайти екстремальну точку кривої другого порядку.\\
+\begin{eqnarray}
+\min \vxt A\vx \\
+\vxt \vx = 1
+\end{eqnarray}
+Складемо функцію Лагранджа: $L = \vxt A \vx + \la\cb{1-\vxt\vx}$\\
+$\dd Lx = 2A\vx -\la \cdot 2\vx =0$\\
+Отримали:$A\vx = \la\vx$
+\subsubsection{Функції від матриць}
+$A = \mt T \begin{matrix}
+\la_1 &\ldots & 0 \\
+\vdots & \vdots & \vdots \\
+0 & \ldots & \la_n
+\end{matrix} T$ \\
+$A^2 = \mt T \Lambda T \mt T \Lambda T = \mt T \Lambda^2 T$\\
+$f(A) = \mt T \begin{matrix}
+f(\la_1) &\ldots & 0 \\
+\vdots & \vdots & \vdots \\
+0 & \ldots & f(\la_n)
+\end{matrix} T$\\
+$e^A = \mt T \begin{matrix}
+e^\la_1 &\ldots & 0 \\
+\vdots & \vdots & \vdots \\
+0 & \ldots & e^\la_n
+\end{matrix} T$\\
+$\det e^A = e^{\la_1+\ldots+\la_n}$\\
+$\la_1+\ldots+\la_n = \tr A$\\
+$\la_1\cdot\ldots\cdot\la_n = \det A$\\
+Отримали: $\det e^A = e^{\tr A}$\\
+\subsubsection{Теорема Гамільтона-Кері}
+\begin{exs}
+$\phi(\la) = \la^2 + k_1\la + k_2$\\
+$\phi\cb{A} = A^2 + k_1 A + k_2 I \equiv 0$
+\end{exs}
+Через це можна виразити:\\
+$A^2 = -k_1 A -k_2I$\\
+$A^3 = A^2\cdot A$\\
+$A^n = \alpha_1 A +\alpha_2 I$\\
+$\la^n = \alpha_1 \la+\alpha_2$\\
